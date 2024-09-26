@@ -14,28 +14,27 @@ const SmashGame = () => {
     productName: "Monster Mountain",
   });
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      console.log("hit");
-      console.log(isLoaded);
-      console.log(loadingProgression);
-      setLoadingProgress(loadingProgression * 100);
-    }, 100); // Check progress every 100ms
 
-    return () => clearInterval(interval);
-  }, [loadingProgression, isLoaded]);
-
-  if (!isLoaded) return <div>loading... {loadingProgress}%</div>;
 
   return (
-    <div style={{ width: "550px", height: "320px" }}>
+    <>
+      {
+        !isLoaded && (
+          <div>
+            Loading {
+Math.round(loadingProgression * 100)            }%
+          </div>
+        )
+  }
+<div style={{ width: "550px", height: "320px" }}>
       <Unity
         style={{ width: "100%", height: "100%" }}
         unityProvider={unityProvider}
         devicePixelRatio={3}
       />
     </div>
-  );
+
+    </>);
 };
 
 export default SmashGame;
