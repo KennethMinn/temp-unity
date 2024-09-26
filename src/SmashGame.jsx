@@ -28,7 +28,7 @@ const SmashGame = () => {
   if (!isLoaded) return <div>loading... {loadingProgress}%</div>;
 
   return (
-    <div style={{ width: "700px", height: "500px" }}>
+    <div style={{ width: "550px", height: "320px" }}>
       <Unity
         style={{ width: "100%", height: "100%" }}
         unityProvider={unityProvider}
